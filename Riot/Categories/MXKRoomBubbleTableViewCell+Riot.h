@@ -52,6 +52,15 @@ extern NSString *const kMXKRoomBubbleCellTapOnReceiptsContainer;
 - (void)selectComponent:(NSUInteger)componentIndex;
 
 /**
+ Highlight a component in receiver and show or not edit button.
+ 
+ @param componentIndex index of the component in bubble message data
+ @param showEditButton true to show edit button
+ @param showTimestamp true to show timestamp label
+ */
+- (void)selectComponent:(NSUInteger)componentIndex showEditButton:(BOOL)showEditButton showTimestamp:(BOOL)showTimestamp;
+
+/**
  Mark a component in receiver.
 
  @param componentIndex index of the component in bubble message data
@@ -72,6 +81,22 @@ extern NSString *const kMXKRoomBubbleCellTapOnReceiptsContainer;
  Update username label color based on bubble data sender ID.
  */
 - (void)updateUserNameColor;
+
+/**
+ Calculate component frame in table view.
+
+ @param componentIndex index of the component in bubble message data
+ @return component frame in table view if component exist or CGRectNull.
+ */
+- (CGRect)componentFrameInTableViewForIndex:(NSInteger)componentIndex;
+
+/**
+ Calculate the component frame in the contentView of the tableview cell.
+ 
+ @param componentIndex index of the component in bubble message data
+ @return component frame in the contentView if the component exists or CGRectNull.
+ */
+- (CGRect)componentFrameInContentViewForIndex:(NSInteger)componentIndex;
 
 /**
  Blur the view by adding a transparent overlay. Default is NO.
